@@ -1,36 +1,93 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Cryptal
 
-## Getting Started
+🚧 **Project Status**
 
-First, run the development server:
+This project is currently under active development.  
+The **full project, source code, and additional features will be published in about one week.**
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+The repository currently documents the project architecture and implemented features while final improvements and polishing are being completed.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🧠 About the Project
+This project is a modern crypto dashboard built with **Next.js App Router**.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+It provides market insights, interactive charts, and detailed cryptocurrency data through a clean and responsive interface.
 
-## Learn More
+The goal of this project is to explore modern **server-first architecture in Next.js** while building a real-world crypto analytics dashboard using external APIs.
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📄 Application Pages Scope
+The application is structured around several main sections:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+**📊 Dashboard**  
+Overview of the crypto market with charts, market insights, and key indicators.
 
-## Deploy on Vercel
+**🪙 Market**  
+Browse cryptocurrencies, explore market rankings, and view important statistics.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+**📈 Coin Details (`/coin/[id]`)**  
+Detailed information about a specific cryptocurrency including charts, market data, and insights.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**📰 News**  
+Latest cryptocurrency news and updates related to the market.
+
+**🏦 Exchanges**  
+Explore major crypto exchanges and their market activity.
+
+**🖼️ NFTs**  
+Section dedicated to NFT market trends and collections.
+
+---
+
+## 🚀 Current Features
+The following features are already implemented in the application:
+
+📊 Interactive price charts for cryptocurrencies  
+🪙 Market page to browse available coins  
+📈 Dashboard with market data and visual insights  
+🔎 Trending / hot coins section  
+📊 Top volume coins list  
+📉 Top gainers tracking  
+🧾 Detailed coin page with market data and sparkline charts  
+😨 Fear & Greed Index indicator  
+🔁 Coin swap preview system  
+⚡ Server-side data fetching for better performance  
+🎨 Responsive UI built with Tailwind CSS  
+🌙 Light / Dark mode support  
+
+---
+
+## 🛠️ Tech Stack
+Framework: **Next.js (App Router)**  
+Language: **TypeScript**  
+Styling: **Tailwind CSS**  
+Charts: Chart library for price visualization  
+Crypto Data: **CoinGecko API**
+
+---
+
+## 🏗️ Architecture Highlights
+Server Components for efficient rendering  
+Next.js caching & revalidation for API requests  
+Reusable data-fetching utilities  
+Internal API routes for swap, coin data, and sentiment indicators  
+
+---
+
+## 📊 Data Sources
+The project currently uses:
+
+**CoinGecko API** – Cryptocurrency market data, trending coins, charts, and coin details  
+**Internal API Routes** – Swap preview, coin data, and Fear & Greed index  
+
+---
+
+## 🎯 Purpose
+This project is built for **learning and portfolio purposes**, focusing on:
+
+Building scalable dashboards with Next.js  
+Working with real-world financial APIs  
+Creating interactive data visualizations  
+Designing clean and responsive UI interfaces
