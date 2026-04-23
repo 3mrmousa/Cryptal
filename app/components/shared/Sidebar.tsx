@@ -34,7 +34,6 @@ function Sidebar() {
 
   return (
     <>
-      {/* Mobile button */}
       <button
         onClick={() => setOpen(true)}
         className="lg:hidden fixed top-5 left-4 z-1000 p-2 rounded-md"
@@ -43,7 +42,6 @@ function Sidebar() {
         <FontAwesomeIcon icon={faBarsStaggered} />
       </button>
 
-      {/* Backdrop (mobile only) */}
       {open && (
         <div
           onClick={() => setOpen(false)}
@@ -178,6 +176,17 @@ function Sidebar() {
                 onClick={() => setOpen(false)}
               >
                 Support
+              </Link>
+            </li>
+
+            <li className={itemClass}>
+              <FontAwesomeIcon icon={faLifeRing} />
+              <Link
+                href="/about"
+                className="text-base"
+                onClick={() => setOpen(false)}
+              >
+                About
               </Link>
             </li>
 
