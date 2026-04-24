@@ -1,6 +1,10 @@
 "use client";
 
-import { faAngleRight, faCaretDown, faCaretUp } from "@fortawesome/free-solid-svg-icons";
+import {
+  faAngleRight,
+  faCaretDown,
+  faCaretUp,
+} from "@fortawesome/free-solid-svg-icons";
 import {
   faXTwitter,
   faFacebook,
@@ -9,7 +13,17 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 
-type Props = { name: string; value: string | number | null };
+type MarketItem = {
+  name: string;
+  value: number | null;
+  prefix?: string;
+  desc?: string;
+};
+
+type InfoItem = {
+  name: string;
+  value: string | string[] | null;
+};
 
 function formatCompactNumber(value: number) {
   if (!Number.isFinite(value)) return "--";
@@ -48,8 +62,8 @@ function CoinDetails({
   infoData,
   marketData,
 }: {
-  infoData: Props[];
-  marketData: Props[];
+  infoData: InfoItem[];
+  marketData: MarketItem[];
 }) {
   const [mobileDetails, setMobileDetails] = useState<boolean>(false);
 
@@ -67,15 +81,15 @@ function CoinDetails({
       >
         Show{" "}
         {mobileDetails ? (
-            <FontAwesomeIcon icon={faCaretUp} />
+          <FontAwesomeIcon icon={faCaretUp} />
         ) : (
-            <FontAwesomeIcon icon={faCaretDown} />
+          <FontAwesomeIcon icon={faCaretDown} />
         )}
       </div>
 
       <div className={`${mobileDetails ? "block" : "hidden"} lg:block`}>
         <ul className="flex flex-col gap-4">
-          {marketData.map((item) => (
+          {marketData.map((item: MarketItem) => (
             <li
               key={item.name}
               className="flex justify-between p-2 border border-zinc-100 dark:border-zinc-900 rounded-lg shadow-lg shadow-zinc-400 dark:shadow-zinc-800"
@@ -125,7 +139,11 @@ function CoinDetails({
                 <p>{infoData[0].name}</p>
               </div>
               <a
-                href={infoData[0].value}
+                href={
+                  typeof infoData[0].value === "string"
+                    ? infoData[0].value
+                    : undefined
+                }
                 className="font-semibold text-indigo-500 cursor-pointer"
               >
                 <FontAwesomeIcon icon={faAngleRight} />
@@ -139,7 +157,11 @@ function CoinDetails({
                 <p>{infoData[1].name}</p>
               </div>
               <a
-                href={infoData[1].value}
+                href={
+                  typeof infoData[1].value === "string"
+                    ? infoData[1].value
+                    : undefined
+                }
                 className="font-semibold text-indigo-500 cursor-pointer"
               >
                 <FontAwesomeIcon icon={faAngleRight} />
@@ -153,7 +175,11 @@ function CoinDetails({
                 <p>{infoData[2].name}</p>
               </div>
               <a
-                href={infoData[2].value}
+                href={
+                  typeof infoData[2].value === "string"
+                    ? infoData[2].value
+                    : undefined
+                }
                 className="font-semibold text-indigo-500 cursor-pointer"
               >
                 <FontAwesomeIcon icon={faAngleRight} />
@@ -167,20 +193,22 @@ function CoinDetails({
                 <p>{infoData[3].name}</p>
               </div>
               <div className="flex gap-3">
-                {infoData[3].value.map((site: string, i: number) => {
-                  if (site) {
+                {Array.isArray(infoData[3]?.value) &&
+                  infoData[3].value.map((site: string, i: number) => {
+                    if (!site) return null;
+
                     return (
                       <a
                         key={i}
                         href={site}
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="hover:scale-110 duration-200"
                       >
                         {getCommunityIcon(site)}
                       </a>
                     );
-                  }
-                })}
+                  })}
               </div>
             </li>
             <li className="flex justify-between p-2 border border-zinc-100 dark:border-zinc-900 rounded-lg shadow-lg shadow-zinc-400 dark:shadow-zinc-800">
@@ -188,7 +216,11 @@ function CoinDetails({
                 <p>{infoData[4].name}</p>
               </div>
               <a
-                href={infoData[4].value}
+                href={
+                  typeof infoData[4].value === "string"
+                    ? infoData[4].value
+                    : undefined
+                }
                 className="font-semibold text-black dark:text-white cursor-pointer"
               >
                 GitHub
